@@ -18,10 +18,10 @@ const app = {
         fbiRequest.onLoadRequest();
     
         /**
-         * Appel méthodes de ma classe getFormValue
+         * Appel méthodes de ma classe formsAction
          */
          formsAction.formSubmit();
-         formsAction.OneCriminalformSubmit();
+         formsAction.showOneCrimalOnClick();
   
         /**
          * Appel méthodes de ma classe template

@@ -21,10 +21,10 @@ formSubmit: function() {
     });
 },
 
-OneCriminalformSubmit: function() {
-    //j'apelle la méthode fbiApiRequest pour lancer la requête
+showOneCrimalOnClick: function() {
+    //j'apelle la méthode showOneCriminalRequest pour lancer la requête
     fbiRequest.showOneCriminalRequest();
-    //Puis je bloque le chargement de la page
+
     const button = document.getElementById('but');
     button.addEventListener('click', function (event) {
     //je reset la div à chaque click pour avoir les cards les unes après les autres

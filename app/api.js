@@ -108,14 +108,14 @@ showOneCriminalRequest: function(){
 
                 button.addEventListener('click', function() {
 
-                        // je resete la banner si il y a eu une recherche faite avant
-                        formsAction.titleReset();
-                        // je lui repasse une valeur
-                        document.getElementById('mydiv').innerHTML = '🤩 BEST OF FBI 🤩'
+                    // je resete la banner si il y a eu une recherche faite avant
+                    formsAction.titleReset();
 
                     for (i = 0; count <= 20; count++) {
+                    
                         var TheObject = responseObjects.items[count++];
-                        button.innerHTML = `${TheObject.title} EST LA RECHERCHE N° ${count}/20 `;
+                        button.innerHTML = `${TheObject.title}`;
+                        document.getElementById('mydiv').innerHTML = `🤩 LAST ${count}/20 🤩`;
                         
                         template.setCardTemplateElmts(TheObject.images[0].original, TheObject.title, TheObject.description, TheObject.dates_of_birth_used);
                         template.setCardSoloStyle();
@@ -123,7 +123,7 @@ showOneCriminalRequest: function(){
                         if(count == 20){
                             count = 0;
                            
-                            const message = `C'est fini mon pote, on repart au début de la liste ! `;
+                            const message = `C'est fini, on repart au début de la liste ! `;
                             const uppercasemessage = message.toUpperCase();
                             button.classList.remove("btn-primary");
                             button.classList.add("btn-warning");
@@ -143,6 +143,7 @@ showOneCriminalRequest: function(){
         })//closuresecond then 
     }//if closure
 },//function closure
+
 
    
 }//fermeture classe
