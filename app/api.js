@@ -40,32 +40,11 @@ fbiApiRequest: function()
         for (const objectsIndexs in responseObjects.items) {
         //myObject contient ici mes 20 objets et leur clés/propriétés à eux  
         const myObjects =  responseObjects.items[objectsIndexs];
-       
-        //m'afficher dans les criminels. Ce if crée un doublon en ajoutant le no d'un criminel déjà présent dans la page
-            if (myObjects.title.includes('DIANA')) {
-            
-            template.setCardTemplateElmts(app.simImage, app.simNom, app.text, '04 Octobre 1979');
-            }//if closure
+        template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
         
-            //remplacement des valeur null sur la date - il faudrait faire d'autres if pour filtrer chaque valeur si jamais les valeurs photos etc étaient = null !
-            if (myObjects.images[0].original == null || myObjects.title == null || myObjects.description == null || myObjects.dates_of_birth_used === null) {
-            template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, 'Pas de Date');
-        
-            }//if closure
-
-            //si il y a bien des valeurs alors je passe ici
-            if (myObjects.images[0].original && myObjects.title && myObjects.description && myObjects.dates_of_birth_used !== null) {
-        
-            // je passe mes valeur en argument de ma méthode setCardTemplateElmts
-            template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
-            } //if closure
-        
-        } //closure de ma loop for in
-        
-        })//closuresecond then 
-
+                } //closure de ma loop for in 
+            })//closuresecond then 
         });//closure 2eme eventlistener et prevent default
-
     },//closure function
    
 
