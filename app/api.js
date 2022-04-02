@@ -53,7 +53,7 @@ const fbiRequest = {
      },
 
     /** 
-     * Méthode de requette sur sur les value entrées dans le formulaire
+     * Request on form submit value
      */
     HandleApiRequest: function() 
     {      
@@ -86,7 +86,7 @@ const fbiRequest = {
     },
 
     /**
-     * Méthode qui apelle UN et UN seul criminel sur la recherche de base
+     * Loop to display only One criminal on base request
      */ 
     showOneCriminalRequest: function()
     {        
