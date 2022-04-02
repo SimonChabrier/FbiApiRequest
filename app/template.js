@@ -92,13 +92,11 @@ setCardTemplateElmts: function(image, titre, description, date){
       //ici je passe l'office courrant pour l'afficher dans la banière
       if(currentOffice){
         let myContent = document.createTextNode('🤩  MOST WANTED FBI IN ' + currentOffice.toUpperCase() + ' 🤩');
-        myDivStyle = document.getElementById('mydiv');
-        myDivStyle.style.background = '#3C3B6E';
+        myDivStyle = document.getElementById('mydiv').style.background = '#3C3B6E';
         myElement.append(myContent);
       } else {
         let myContent = document.createTextNode('🤩  OUPS ! YOU MUST SELECT A CITY IN LIST 🤩'); 
-        myDivStyle = document.getElementById('mydiv');
-        myDivStyle.style.background = 'red';
+        myDivStyle = document.getElementById('mydiv').style.background = 'red';
         myElement.append(myContent); 
       }
       // je passe myContent dans myElement
