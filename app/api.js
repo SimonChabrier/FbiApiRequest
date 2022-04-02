@@ -4,11 +4,8 @@ const fbiRequest = {
      * Méthode de requette sur sur les value entrées dans le formulaire
      * apelée dans fbiApiRequestOnFormSubmit()
      */
-
-
-    fbiApiRequest: function() 
-    {
-        
+fbiApiRequest: function() 
+    {      
         const buttonOnClick = document.getElementById('validate');
         buttonOnClick.addEventListener('click', function () {
         
@@ -43,7 +40,7 @@ const fbiRequest = {
         for (const objectsIndexs in responseObjects.items) {
         //myObject contient ici mes 20 objets et leur clés/propriétés à eux  
         const myObjects =  responseObjects.items[objectsIndexs];
-        console.log(myObjects.title)
+       
         //m'afficher dans les criminels. Ce if crée un doublon en ajoutant le no d'un criminel déjà présent dans la page
             if (myObjects.title.includes('DIANA')) {
             
@@ -71,13 +68,12 @@ const fbiRequest = {
 
     },//closure function
    
- 
+
     /**
      * Méthode qui apelle la requête de base
      * appellée au chargement du dom dans app.init()
      */ 
-    onLoadRequest: function(){
-
+onLoadRequest: function(){
     if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices=')
     {
 
@@ -111,10 +107,10 @@ const fbiRequest = {
         template.setCardTemplateElmts(app.simImage, app.simNom, app.text, '04 Octobre 1979');
         }//if closure
     
-        //remplacement des valeur null sur la date - il faudrait faire d'autres if pour filtrer chaque valeur si jamais les valeurs photos etc étaient = null !
-        if (myObjects.images[0].original == null || myObjects.title == null || myObjects.description == null || myObjects.dates_of_birth_used === null) {
-        template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, 'Pas de Date');
-        }//if closure
+        // //remplacement des valeur null sur la date - il faudrait faire d'autres if pour filtrer chaque valeur si jamais les valeurs photos etc étaient = null !
+        // if (myObjects.images[0].original == null || myObjects.title == null || myObjects.description == null || myObjects.dates_of_birth_used === null) {
+        // template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
+        // }//if closure
 
         //si il y a bien des valeurs alors je passe ici
         if (myObjects.images[0].original && myObjects.title && myObjects.description && myObjects.dates_of_birth_used !== null) {
@@ -132,8 +128,7 @@ const fbiRequest = {
      * Méthode qui apelle UN et UN seul criminel sur la recherche de base
      * appellée au chargement du dom dans app.init()
      */ 
-    showOneCriminalRequest: function(){
-        
+showOneCriminalRequest: function(){        
     if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices='){
         
         let config = {
@@ -148,37 +143,26 @@ const fbiRequest = {
         })
 
         .then(function(responseObjects) { 
-                
-                //todo mettre ma fonction de compteur ici
-             
+                   
                 // ok récupère le 1er objet de la liste des objets 
                 // var Object = responseObjects.items[0];
-                //todo ici il faut que je change l'index de l'objet
                 const button = document.getElementById('but');
                 let count = 0;
 
                 button.addEventListener('click', function() {
                     
+                        // je resete la banner si il y a eu une recherche faite avant
+                        getFormValue.titleReset();
+                        // je lui repasse une valeur
+                        document.getElementById('mydiv').innerHTML = '🤩 BEST OF FBI 🤩'
+
                     for (i = 0; count <= 20; count++) {
                         var TheObject = responseObjects.items[count++];
                         button.innerHTML = `${TheObject.title} EST LA RECHERCHE N° ${count}/20 `;
                         
-                        
-                        //remplacement des valeur null sur la date - il faudrait faire d'autres if pour filtrer chaque valeur si jamais les valeurs photos etc étaient = null !
-                        if (TheObject.images[0].original == null || TheObject.title == null || TheObject.description == null || TheObject.dates_of_birth_used === null) {  
-                        template.setCardTemplateElmts(TheObject.images[0].original, TheObject.title, TheObject.description, 'Pas de Date');
-                        template.setCardSoloStyle();
-                        }//if closure
-                            
-                        if (TheObject.images[0].original && TheObject.title && TheObject.description && TheObject.dates_of_birth_used !== null) {
-                        // je passe mes valeur en argument de ma méthode setCardTemplateElmts
-                        
                         template.setCardTemplateElmts(TheObject.images[0].original, TheObject.title, TheObject.description, TheObject.dates_of_birth_used);
-                        console.log('showOneCriminalRequest')
                         template.setCardSoloStyle();
-                        }
-                        //reset compteur à 20 je reviens au début
-                        //je change le style du bouton
+       
                         if(count == 20){
                             count = 0;
                            

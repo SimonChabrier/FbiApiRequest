@@ -16,7 +16,6 @@ setCardTemplateElmts: function(image, titre, description, date){
       //création de la div card-group
       const myDivCard = document.createElement ('div');
       myDivCard.classList.add('card');
-      //myDivCard.style.width ="15rem";
 
       //création de la balise img - ici à la fin j'ai toutes mes images avec la bonne class et le lien de chaque image
       const myImg = document.createElement ('img')
@@ -49,16 +48,39 @@ setCardTemplateElmts: function(image, titre, description, date){
 
       //ici j'ajoute myDivCard à cardGroup
       cardGroup.append(myDivCard)
+
+      if (myImg != null){
       myDivCard.append(myImg);
+      } else {
+      myDivCard.append('Pas d\'image');
+      }
+      
       myDivCard.append(myDivCardBody);
       myDivCardBody.append(myDivCardTitle);
-      myDivCardTitle.append(titre)
+
+      if (titre =! null){
+        myDivCardTitle.append(titre)
+      }else{
+        myDivCardTitle.append('pas de titre')
+      }
+      
       myDivCardBody.append(myDivCardText);
-      myDivCardText.append(description);
+
+      if(description != null){
+        myDivCardText.append(description);
+      }else{
+        myDivCardText.append('pas de description');
+      }
+      
       myDivCardBody.append(myDivCardText);
       myDivCardBody.append(myDivCardTextDate);
       myDivCardTextDate.append(mySmallBalise);
+
+      if (date != null)
       mySmallBalise.append(date);
+      else {
+      mySmallBalise.append('YALLAHHHHH');  
+      }
 
 },
 
@@ -66,15 +88,15 @@ setCardTemplateElmts: function(image, titre, description, date){
      * Méthode créer une div à l'intérieur de la div
      * ayant l'id myDiv dans le code HTML
      */
-      personnalTitleInDiv: function (myText){
+  personnalTitleInDiv: function (myText){
       let myElement = document.createElement ('div');
       // je passe myElement dans myDiv
       myDiv = document.getElementById('mydiv').append(myElement);
       let currentOffice = document.getElementById('input').value;
-      console.log(currentOffice)
+      //console.log(currentOffice)
       //ici je passe l'office courrant pour l'afficher dans la banière
       let myContent = document.createTextNode(myText + currentOffice.toUpperCase());
-      console.log(currentOffice.toUpperCase())
+      //console.log(currentOffice.toUpperCase())
       // je passe myContent dans myElement
       myElement.append(myContent);
   },
@@ -83,7 +105,7 @@ setCardTemplateElmts: function(image, titre, description, date){
    * Méthode pour appliquer un style à la div
    * ayant l'id'myDiv dans le code HTML
    */
-   personnalTitleInDivStyle: function() {
+  personnalTitleInDivStyle: function() {
       myDivStyle = document.getElementById('mydiv');
       myDivStyle.style.background = '#3C3B6E';
       myDivStyle.style.textAlign = "center";
@@ -95,29 +117,28 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivStyle.style.marginTop = '15px';
   },
 
-//todo gérer la taille des images j'apelle cette méthode dans api showOneCriminalRequest()
-    setCardSoloStyle: function(){
-    soloCardStyle = document.querySelector('img');
-    soloCardStyle.style.width = '550px';
-    soloCardStyle.style.height = 'auto';
-    console.log('ici')
-   
 
+  setCardSoloStyle: function(){
+     
+      soloCardStyle = document.querySelector('img');
+      soloCardStyle.style.width = '550px';
+      soloCardStyle.style.height = 'auto';
+      console.log('teplate.js Methode setCardSoloStyle ligne 102')
   },
 
-    setFocusOnButtons: function(){
+    // setFocusOnButtons: function(){
 
-    const buttonFocusonValidateButton = document.getElementById("validate");
-    buttonFocusonValidateButton.addEventListener('mouseover', function(){
-   buttonFocusonValidateButton.focus();
-    console.log('setFocusOnButtons')
-    });
+    // const buttonFocusonValidateButton = document.getElementById("validate");
+    // buttonFocusonValidateButton.addEventListener('mouseover', function(){
+    // buttonFocusonValidateButton.focus();
+    // console.log('setFocusOnButtons')
+    // });
     
-    const buttonFocusonResetButton = document.getElementById("onload");
-    buttonFocusonResetButton.addEventListener('mouseover', function(){
-    buttonFocusonResetButton.focus();
-    console.log('setFocusOnButtons')
-    });
-    },
+    // const buttonFocusonResetButton = document.getElementById("onload");
+    // buttonFocusonResetButton.addEventListener('mouseover', function(){
+    // buttonFocusonResetButton.focus();
+    // console.log('setFocusOnButtons')
+    // });
+    // },
 
 };
