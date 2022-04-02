@@ -132,16 +132,6 @@ const fbiRequest = {
         })//close then callback 
     },
 
-    counter: function(){
-        let count = 0
-        const button = document.getElementById('but');
-        button.addEventListener('click', function() {
-        count = count+=1  
-        console.log(count)
-        return count    
-        });
-    },
-
    
 }
 

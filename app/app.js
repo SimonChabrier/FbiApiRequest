@@ -25,7 +25,6 @@ const app = {
         formsAction.formSubmit();
         formsAction.showOneCrimalOnClick();
         fbiRequest.onLoadRequest();
-        fbiRequest.counter();
         template.personnalTitleInDivStyle(); 
         document.getElementById('mydiv').innerHTML = `🤩 FBI API REQUEST 🤩`;
         
