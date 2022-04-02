@@ -1,4 +1,20 @@
 const fbiRequest = {
+ 
+/**
+ * Add listener
+ * and init functions I need
+ */
+listenerOnSearchOfficeSubmit: function() 
+    {     
+        document.getElementById('validate').addEventListener('click', fbiRequest.HandleApiRequest);
+        formsAction.formSubmit();
+        formsAction.showOneCrimalOnClick();
+        fbiRequest.onLoadRequest();
+        template.personnalTitleInDivStyle(); 
+         
+    },
+
+ 
 
 /**
  * Méthode qui apelle la requête de base
@@ -37,21 +53,23 @@ onLoadRequest: function(){
   
 },//function closure
 
+
 /** 
  * Méthode de requette sur sur les value entrées dans le formulaire
  */
-fbiApiRequest: function() 
+HandleApiRequest: function() 
     {      
-        const buttonOnClick = document.getElementById('validate');
-        buttonOnClick.addEventListener('click', function () {
-        
+ 
         //si je n'ai pas de ville je resette le titre pour ne pas afficher de ville
         if(citySearch =! ''){
+            console.log(citySearch)
             formsAction.titleReset()
         };
 
+        //document.getElementById('mydiv').innerHTML = `🤩 FBI API REQUEST 🤩`;
+
         apiEndPoint = app.apiRootUrl()
-        console.log(apiEndPoint)
+
         // Préparation de la config pour la requête HTTP
         let config = {
             method: 'GET',
@@ -78,7 +96,6 @@ fbiApiRequest: function()
         
                 } //closure de ma loop for in 
             })//closuresecond then 
-        });//closure 2eme eventlistener et prevent default
     },//closure function
    
 /**
@@ -86,8 +103,6 @@ fbiApiRequest: function()
  * appellée au chargement du dom dans app.init()
  */ 
 showOneCriminalRequest: function(){        
-
- 
 
     apiEndPoint = app.apiRootUrl()
         
@@ -108,7 +123,8 @@ showOneCriminalRequest: function(){
                 let count = 0; // initialisation du compteur
 
                 button.addEventListener('click', function() {
-
+                    // reset couleur de fond du header si elle a été pasée en rouge avant
+                    myDivStyle = document.getElementById('mydiv').style.background = '#3C3B6E';
                     // je resete la banner si il y a eu une recherche faite avant
                     formsAction.titleReset();
 

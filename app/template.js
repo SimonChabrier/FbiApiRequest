@@ -99,8 +99,7 @@ setCardTemplateElmts: function(image, titre, description, date){
         myDivStyle = document.getElementById('mydiv').style.background = 'red';
         myElement.append(myContent); 
       }
-      // je passe myContent dans myElement
-      myElement.append(myContent);
+
   },
 
   /**

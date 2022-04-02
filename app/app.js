@@ -1,50 +1,31 @@
 const app = {
     
-    //requête de base
-    apiRootUrl: function (){
-
-    citySearch = document.getElementById('input').value
-
-        if (citySearch){
-            apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + citySearch
-        } else {
-            apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices='
-        }
-        
-        return apiRootUrl
-    },
+    //set request dynamics params
+    apiRootUrl: function ()
+    {
+        citySearchValue = document.getElementById('input').value
     
+            if (citySearchValue){
+                apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + citySearchValue 
+            } else {
+                apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices='
+            }
+            return apiRootUrl
+    },  
+
     /**
      * Méthode init
-     * Apellée au chargement du DOM
-     * contient les appels aux méthodes que je veux initialiser 
-     * dès le chragement du DOM chargement 
+     * Call click listener
      */
-    init: function() {
+    init: function()
+    {
         console.log("init");
-
-        /**
-         * Appel de la reqête primaire au chargement avant tout action.
-         */
-        fbiRequest.onLoadRequest();
-    
-        /**
-         * Appel méthodes de ma classe formsAction
-         */
-         formsAction.formSubmit();
-         formsAction.showOneCrimalOnClick();
-  
-        /**
-         * Appel méthodes de ma classe template
-         */
-         template.personnalTitleInDivStyle(); 
-
+        fbiRequest.listenerOnSearchOfficeSubmit();
     },
-
-    
+  
 };
 
-// init est apellée ici au chargement du DOM
+// I call Init function on DOM content loaded
 document.addEventListener('DOMContentLoaded', app.init);
 
 

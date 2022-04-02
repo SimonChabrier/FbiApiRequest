@@ -5,9 +5,9 @@ const formsAction = {
  * pour soumettre la requête au clic
  */
 formSubmit: function() {
-    //j'apelle la méthode fbiApiRequest pour lancer la requête
+    //j'apelle la méthode HandleApiRequestt pour lancer la requête
     //AVANT de bloquer le chargement de la page
-    fbiRequest.fbiApiRequest();
+    fbiRequest.HandleApiRequest();
 
     const button = document.getElementById('validate');
     button.addEventListener('click', function (event) {
