@@ -113,19 +113,15 @@ const fbiRequest = {
 
                 if(count == myDatas.items.length){
                     count = 0;
-                    
-                    const message = `C'est fini, on repart au début de la liste ! `;
-                    const uppercasemessage = message.toUpperCase();
                     button.classList.remove("btn-primary");
                     button.classList.add("btn-warning");
-                    button.innerHTML = uppercasemessage;
+                    button.innerHTML = `C'est fini, on repart au début de la liste ! `.toUpperCase();
                 };
 
                 //réinitialisation de la classe du boutton au premier clic si on a fait une boucle
                 if (count == 1){
                     button.classList.remove("btn-warning");
-                    button.classList.add("btn-primary");
-                    
+                    button.classList.add("btn-primary");   
                 };
                 
                 break
