@@ -26,9 +26,9 @@ onLoadRequest: function(){
         // On la nomme comme on veut, et on l'utilise dans le callback ici
         .then(function(responseObjects) { 
 
-        for (const objectsIndexs in responseObjects.items) {
-
-        const myObjects =  responseObjects.items[objectsIndexs];   
+        for (const objectKey in responseObjects.items) {
+  
+        const myObjects =  responseObjects.items[objectKey];   
         template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
 
             } //closure de ma loop for in
@@ -38,7 +38,6 @@ onLoadRequest: function(){
 
 /** 
  * Méthode de requette sur sur les value entrées dans le formulaire
- * apelée dans fbiApiRequestOnFormSubmit()
  */
 fbiApiRequest: function() 
     {      
@@ -46,11 +45,11 @@ fbiApiRequest: function()
         buttonOnClick.addEventListener('click', function () {
         
         // On récupère la value de l'élément input du form pour dynamiser le endpoint de la requête
-        cityEntry = document.getElementById('input').value;
-        const apiDynamicUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + cityEntry;
+        citySearch = document.getElementById('input').value;
+        const apiDynamicUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + citySearch;
         
         //si je n'ai pas de ville je resette le titre pour ne pas afficher de ville
-        if(cityEntry =! ''){
+        if(citySearch =! ''){
             formsAction.titleReset()
         };
 
