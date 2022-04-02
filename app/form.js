@@ -4,6 +4,8 @@ const formsAction = {
  * Méthode qui pose un eventlistener sur le clic du bouton search in post offices list
  */
 formSubmit: function() {
+    fbiRequest.listenerOnSearchOfficeSubmit();
+    
     document.getElementById('validate').addEventListener ('click', function (event) {
     //clean page template
     template.cardGroupDivReset();
@@ -19,6 +21,7 @@ formSubmit: function() {
 
 showOneCrimalOnClick: function() {
     fbiRequest.showOneCriminalRequest()
+
     document.getElementById('but').addEventListener('click', function (event) {
     //clean page template
     template.cardGroupDivReset();

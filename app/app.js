@@ -20,13 +20,14 @@ const app = {
     init: function()
     {
         console.log("init");
-        fbiRequest.listenerOnSearchOfficeSubmit();
-        //fbiRequest.showOneCriminalRequest();
+        fbiRequest.onLoadRequest();
+        
         formsAction.formSubmit();
         formsAction.showOneCrimalOnClick();
-        fbiRequest.onLoadRequest();
-        template.personnalTitleInDivStyle(); 
-        document.getElementById('mydiv').innerHTML = `🤩 FBI API REQUEST 🤩`;
+        
+
+        //template.personnalTitleInDivStyle(); 
+        //document.getElementById('mydiv').innerHTML = `🤩 FBI API REQUEST 🤩`;
         
     },
   

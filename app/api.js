@@ -5,7 +5,10 @@ const fbiRequest = {
      * appellée au chargement du dom dans app.init()
      */ 
     onLoadRequest: function()
-    {
+    {   
+        //initialize header
+        template.personnalTitleInDivStyle();
+
         //set the endPoint
         apiEndPoint = app.apiRootUrl()
 
