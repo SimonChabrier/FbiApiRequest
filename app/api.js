@@ -6,7 +6,7 @@ const fbiRequest = {
      */
 
 
-    fbiApiRequest: function(event) 
+    fbiApiRequest: function() 
     {
         
         const buttonOnClick = document.getElementById('validate');
