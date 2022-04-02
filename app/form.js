@@ -28,8 +28,5 @@ showOneCrimalOnClick: function() {
 },
 
 
-
-
-
 }//closure class
 

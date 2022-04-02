@@ -76,8 +76,8 @@ const fbiRequest = {
     showOneCriminalRequest: function()
     {        
 
-        apiEndPoint = app.apiRootUrl()
-        
+        apiEndPoint = app.apiRootUrl(); 
+
         let config = {
             method: 'GET',
             mode: 'cors',
@@ -124,7 +124,7 @@ const fbiRequest = {
                     button.classList.add("btn-primary");
                     
                 };
-
+                
                 break
 
                 } //close for      

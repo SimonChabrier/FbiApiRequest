@@ -21,7 +21,7 @@ const app = {
     {
         console.log("init");
         fbiRequest.listenerOnSearchOfficeSubmit();
-        fbiRequest.showOneCriminalRequest()
+        fbiRequest.showOneCriminalRequest();
         formsAction.formSubmit();
         formsAction.showOneCrimalOnClick();
         fbiRequest.onLoadRequest();
