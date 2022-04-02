@@ -16,7 +16,7 @@ const app = {
         console.log("init");
 
         /**
-         * Appel méthodes de ma classe fbiRequest
+         * Appel de la reqête primaire au chargement avant tout action.
          */
         fbiRequest.onLoadRequest();
     

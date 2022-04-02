@@ -76,7 +76,6 @@ fbiApiRequest: function()
 onLoadRequest: function(){
     if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices=')
     {
-
         // Préparation de la config pour la requête HTTP
         let config = {
             method: 'GET',
@@ -98,30 +97,12 @@ onLoadRequest: function(){
 
         for (const objectsIndexs in responseObjects.items) {
 
-        //myObjects contient ici chaque objet de la propriété items (items = les fiches des criminels)
-        // de l'objet retourné par la requête
         const myObjects =  responseObjects.items[objectsIndexs];   
-
-        //m'afficher dans les criminels. Ce if crée un doublon en ajoutant le no d'un criminel déjà présent dans la page
-        if (myObjects.title == 'SARA NICOLE GRAHAM') {
-        template.setCardTemplateElmts(app.simImage, app.simNom, app.text, '04 Octobre 1979');
-        }//if closure
-    
-        // //remplacement des valeur null sur la date - il faudrait faire d'autres if pour filtrer chaque valeur si jamais les valeurs photos etc étaient = null !
-        // if (myObjects.images[0].original == null || myObjects.title == null || myObjects.description == null || myObjects.dates_of_birth_used === null) {
-        // template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
-        // }//if closure
-
-        //si il y a bien des valeurs alors je passe ici
-        if (myObjects.images[0].original && myObjects.title && myObjects.description && myObjects.dates_of_birth_used !== null) {
-        // je passe mes valeur en argument de ma méthode setCardTemplateElmts
         template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
-        } //else closure
-        
+    
             } //closure de ma loop for in
         })//closuresecond then 
-    } 
-
+    } //closure first if 
 },//function closure
 
     /**
@@ -144,13 +125,11 @@ showOneCriminalRequest: function(){
 
         .then(function(responseObjects) { 
                    
-                // ok récupère le 1er objet de la liste des objets 
-                // var Object = responseObjects.items[0];
                 const button = document.getElementById('but');
-                let count = 0;
+                let count = 0; // initialisation du compteur
 
                 button.addEventListener('click', function() {
-                    
+
                         // je resete la banner si il y a eu une recherche faite avant
                         getFormValue.titleReset();
                         // je lui repasse une valeur
