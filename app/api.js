@@ -1,5 +1,17 @@
 const fbiRequest = {
 
+    apiRootUrl: function ()
+    {
+        citySearchValue = document.getElementById('input').value
+        
+            if (citySearchValue){
+                apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + citySearchValue 
+            } else {
+                apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices='
+            }
+            return apiRootUrl
+    }, 
+
     /**
      * Méthode qui apelle la requête de base
      * appellée au chargement du dom dans app.init()
@@ -10,7 +22,7 @@ const fbiRequest = {
         template.personnalTitleInDivStyle();
 
         //set the endPoint
-        apiEndPoint = app.apiRootUrl()
+        apiEndPoint = fbiRequest.apiRootUrl()
 
         let config = {
             method: 'GET',
@@ -25,7 +37,6 @@ const fbiRequest = {
         .then(function(myDatas) { 
 
             for (const itemKey in myDatas.items) {
-    
             const myObject =  myDatas.items[itemKey];   
             template.setCardTemplateElmts(myObject.images[0].original, myObject.title, myObject.description, myObject.dates_of_birth_used);
             }
@@ -51,7 +62,7 @@ const fbiRequest = {
         };
 
         //set the endPoint
-        apiEndPoint = app.apiRootUrl()
+        apiEndPoint = fbiRequest.apiRootUrl()
 
         let config = {
             method: 'GET',
@@ -79,7 +90,7 @@ const fbiRequest = {
     showOneCriminalRequest: function()
     {        
 
-        apiEndPoint = app.apiRootUrl(); 
+        apiEndPoint = fbiRequest.apiRootUrl(); 
 
         let config = {
             method: 'GET',
@@ -103,28 +114,28 @@ const fbiRequest = {
                 template.titleReset();
 
                 for (init = 0; count <= myDatas.items.length; count++) {
-                
                 let myObject = myDatas.items[count++];
+
                 button.innerHTML = `${myObject.title}`;
-                document.getElementById('mydiv').innerHTML = `🤩 LAST ${count}/20 🤩`;
-                
+                document.getElementById('mydiv').innerHTML = `🤩 LAST WANTED ${count} ON 20 🤩`;
+
                 template.setCardTemplateElmts(myObject.images[0].original, myObject.title, myObject.description, myObject.dates_of_birth_used);
                 template.setCardSoloStyle();
 
-                if(count == myDatas.items.length){
-                    count = 0;
-                    button.classList.remove("btn-primary");
-                    button.classList.add("btn-warning");
-                    button.innerHTML = `C'est fini, on repart au début de la liste ! `.toUpperCase();
-                };
+                    if(count === myDatas.items.length){
+                        count = 0;
+                        button.classList.remove("btn-primary");
+                        button.classList.add("btn-warning");
+                        button.innerHTML = `C'est fini, on repart au début de la liste ! `.toUpperCase();
+                    };
 
-                //réinitialisation de la classe du boutton au premier clic si on a fait une boucle
-                if (count == 1){
-                    button.classList.remove("btn-warning");
-                    button.classList.add("btn-primary");   
-                };
+                    //réinitialisation de la classe du boutton au premier clic si on a fait une boucle
+                    if (count === 1){
+                        button.classList.remove("btn-warning");
+                        button.classList.add("btn-primary");   
+                    };
                 
-                break
+                    break
 
                 } //close for      
             }); //close event     
