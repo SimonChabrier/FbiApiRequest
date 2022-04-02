@@ -5,8 +5,9 @@ const fbiRequest = {
  * appellée au chargement du dom dans app.init()
  */ 
 onLoadRequest: function(){
-    if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices=')
-    {
+
+        apiEndPoint = app.apiRootUrl()
+
         // Préparation de la config pour la requête HTTP
         let config = {
             method: 'GET',
@@ -16,7 +17,7 @@ onLoadRequest: function(){
 
         // Exécution de la requête HTTP via fetch en lui envoyant la config
         //fetch(app.apiRootUrl, config)
-        fetch(app.apiRootUrl, config)
+        fetch(apiEndPoint, config)
             // La requête exécutée, alors j'exécute le callback du then
             .then(function(response) {
                 // Convertion de la réponse en un objet JS et on le retourne
@@ -33,7 +34,7 @@ onLoadRequest: function(){
 
             } //closure de ma loop for in
         })//closuresecond then 
-    } //closure first if 
+  
 },//function closure
 
 /** 
@@ -44,15 +45,13 @@ fbiApiRequest: function()
         const buttonOnClick = document.getElementById('validate');
         buttonOnClick.addEventListener('click', function () {
         
-        // On récupère la value de l'élément input du form pour dynamiser le endpoint de la requête
-        citySearch = document.getElementById('input').value;
-        const apiDynamicUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + citySearch;
-        
         //si je n'ai pas de ville je resette le titre pour ne pas afficher de ville
         if(citySearch =! ''){
             formsAction.titleReset()
         };
 
+        apiEndPoint = app.apiRootUrl()
+        console.log(apiEndPoint)
         // Préparation de la config pour la requête HTTP
         let config = {
             method: 'GET',
@@ -62,7 +61,7 @@ fbiApiRequest: function()
     
         // Exécution de la requête HTTP via fetch en lui envoyant la config
         //fetch(app.apiRootUrl, config)
-        fetch(apiDynamicUrl, config)
+        fetch(apiEndPoint, config)
             // La requête exécutée, alors j'exécute le callback du then
             .then(function(response) {
                 // Convertion de la réponse en un objet JS et on le retourne
@@ -87,7 +86,10 @@ fbiApiRequest: function()
  * appellée au chargement du dom dans app.init()
  */ 
 showOneCriminalRequest: function(){        
-    if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices='){
+
+ 
+
+    apiEndPoint = app.apiRootUrl()
         
         let config = {
             method: 'GET',
@@ -95,7 +97,7 @@ showOneCriminalRequest: function(){
             cache: 'no-cache',
         };
     
-        fetch(app.apiRootUrl, config)
+        fetch(apiEndPoint, config)
             .then(function(response) {
                 return response.json();
         })
@@ -140,7 +142,7 @@ showOneCriminalRequest: function(){
                 } //closure for      
             }); //closure event     
         })//closuresecond then 
-    }//if closure
+ 
 },//function closure
 
 

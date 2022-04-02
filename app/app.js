@@ -1,8 +1,17 @@
 const app = {
     
     //requête de base
-    apiRootUrl: 'https://api.fbi.gov/wanted/v1/list?field_offices=', 
+    apiRootUrl: function (){
 
+    citySearch = document.getElementById('input').value
+
+        if (citySearch){
+            apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + citySearch
+        } else {
+            apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices='
+        }
+    return apiRootUrl
+},
     /**
      * Méthode init
      * Apellée au chargement du DOM
