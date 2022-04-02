@@ -53,7 +53,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivCardBody.append(myDivCardTitle);
 
       if (titre){
-        myDivCardTitle.append(titre)
+        myDivCardTitle.append(template.limitCaractersLenght(titre, 13))
       } else {
         myDivCardTitle.append('Pas de titre')
       };
@@ -61,7 +61,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivCardBody.append(myDivCardText);
 
       if (description){
-        myDivCardText.append(description);
+        myDivCardText.append(template.limitCaractersLenght(description, 80));
       } else {
         myDivCardText.append('Pas de description');
       };
@@ -71,10 +71,10 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivCardTextDate.append(mySmallBalise);
 
       if (date){
-        mySmallBalise.append(date);
+          mySmallBalise.append(date[0]); 
       }
       else {
-      mySmallBalise.append('Pas de date');  
+      mySmallBalise.append('Pas de date renseignée !');  
       };
 
 },
@@ -127,7 +127,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       soloCardStyle.style.height = 'auto';
 
   },
-  
+
 /**
  * vide la div template a chaque requête
  */
@@ -142,4 +142,13 @@ titleReset: function(){
   document.getElementById('mydiv').innerHTML = ''
   myDivStyle = document.getElementById('mydiv').style.background = '#3C3B6E';
 },
+
+
+
+limitCaractersLenght: function(text, count){
+
+  return text.slice(0, count) + ' ...';
+},
+
+
 };

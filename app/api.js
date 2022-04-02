@@ -38,6 +38,7 @@ const fbiRequest = {
 
             for (const itemKey in myDatas.items) {
             const myObject =  myDatas.items[itemKey];   
+
             template.setCardTemplateElmts(myObject.images[0].original, myObject.title, myObject.description, myObject.dates_of_birth_used);
             }
         })
