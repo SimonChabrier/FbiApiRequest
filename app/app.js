@@ -4,14 +4,14 @@ const app = {
     apiRootUrl: function ()
     {
         citySearchValue = document.getElementById('input').value
-    
+
             if (citySearchValue){
                 apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices=' + citySearchValue 
             } else {
                 apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices='
             }
             return apiRootUrl
-    },  
+    }, 
 
     /**
      * Méthode init
@@ -21,6 +21,12 @@ const app = {
     {
         console.log("init");
         fbiRequest.listenerOnSearchOfficeSubmit();
+        formsAction.formSubmit();
+        formsAction.showOneCrimalOnClick();
+        fbiRequest.onLoadRequest();
+        template.personnalTitleInDivStyle(); 
+        document.getElementById('mydiv').innerHTML = `🤩 FBI API REQUEST 🤩`;
+        
     },
   
 };
