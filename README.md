@@ -8,4 +8,4 @@ Search last 20 most wanted or search by Fbi Post Office.
 
 Yout can try it here.
 
-https://js.simschab.fr/fbi/index.html
+https://js.simschab.fr/FbiApiRequest/index.html
