@@ -9,36 +9,29 @@ const template = {
  */
 setCardTemplateElmts: function(image, titre, description, date){
           
-      //création de la div card-group
+      //création de la div card-group et des ses classes
       const myDivCardGroup = document.createElement('div');
       myDivCardGroup.classList.add('card-group');
-
-      //création de la div card-group
+      //création de la div card
       const myDivCard = document.createElement ('div');
       myDivCard.classList.add('card');
-      //myDivCard.style.width ="15rem";
-
-      //création de la balise img - ici à la fin j'ai toutes mes images avec la bonne class et le lien de chaque image
+      //création de la balise img
       const myImg = document.createElement ('img')
       myImg.classList.add('card-img-top');
+      //puis insertion de l'image
       myImg.src = image;
-
       //création de la div card-body
       const myDivCardBody = document.createElement ('div');
       myDivCardBody.classList.add('card-body');
-
       //création de la div card-title
       const myDivCardTitle = document.createElement ('h5');
       myDivCardTitle.classList.add('card-title');
-
       //création de la balise p pour la description
       const myDivCardText = document.createElement ('p');
       myDivCardText.classList.add('card-text');
-
       //création de la balise p pour la date
       const myDivCardTextDate = document.createElement ('p');
       myDivCardTextDate.classList.add('card-text');
-
       //création de la balise small pour insérer la date dedans
       const mySmallBalise = document.createElement('small')
       mySmallBalise.classList.add('text-muted');
@@ -47,18 +40,42 @@ setCardTemplateElmts: function(image, titre, description, date){
       //ici je me positionne par rapport à card-group 
       const cardGroup = document.getElementById('card-group')
 
-      //ici j'ajoute myDivCard à cardGroup
+      //puis j'ajoute myDivCard à cardGroup
       cardGroup.append(myDivCard)
+
+      if (myImg){
       myDivCard.append(myImg);
+      } else {
+      myDivCard.append('Pas d\'image');
+      };
+      
       myDivCard.append(myDivCardBody);
       myDivCardBody.append(myDivCardTitle);
-      myDivCardTitle.append(titre)
+
+      if (titre){
+        myDivCardTitle.append(template.limitCaractersLenght(titre, 13))
+      } else {
+        myDivCardTitle.append('Pas de titre')
+      };
+      
       myDivCardBody.append(myDivCardText);
-      myDivCardText.append(description);
+
+      if (description){
+        myDivCardText.append(template.limitCaractersLenght(description, 80));
+      } else {
+        myDivCardText.append('Pas de description');
+      };
+      
       myDivCardBody.append(myDivCardText);
       myDivCardBody.append(myDivCardTextDate);
       myDivCardTextDate.append(mySmallBalise);
-      mySmallBalise.append(date);
+
+      if (date){
+          mySmallBalise.append(date[0]); 
+      }
+      else {
+      mySmallBalise.append('Pas de date renseignée !');  
+      };
 
 },
 
@@ -66,24 +83,31 @@ setCardTemplateElmts: function(image, titre, description, date){
      * Méthode créer une div à l'intérieur de la div
      * ayant l'id myDiv dans le code HTML
      */
-      personnalTitleInDiv: function (myText){
+  curentOfficeTitleInDiv: function (){
       let myElement = document.createElement ('div');
       // je passe myElement dans myDiv
       myDiv = document.getElementById('mydiv').append(myElement);
+      // je récupère la valeur du current office soummis dans le form
       let currentOffice = document.getElementById('input').value;
-      console.log(currentOffice)
       //ici je passe l'office courrant pour l'afficher dans la banière
-      let myContent = document.createTextNode(myText + currentOffice.toUpperCase());
-      console.log(currentOffice.toUpperCase())
-      // je passe myContent dans myElement
-      myElement.append(myContent);
+      if(currentOffice){
+        let myContent = document.createTextNode('🤩  MOST WANTED FBI IN ' + currentOffice.toUpperCase() + ' 🤩');
+        myDivStyle = document.getElementById('mydiv').style.background = '#3C3B6E';
+        myElement.append(myContent);
+      } else {
+        let myContent = document.createTextNode('🤩  OUPS ! YOU MUST SELECT A CITY IN LIST 🤩'); 
+        myDivStyle = document.getElementById('mydiv').style.background = 'red';
+        myElement.append(myContent); 
+      }
+
   },
 
   /**
    * Méthode pour appliquer un style à la div
    * ayant l'id'myDiv dans le code HTML
    */
-   personnalTitleInDivStyle: function() {
+  personnalTitleInDivStyle: function() {
+
       myDivStyle = document.getElementById('mydiv');
       myDivStyle.style.background = '#3C3B6E';
       myDivStyle.style.textAlign = "center";
@@ -95,29 +119,36 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivStyle.style.marginTop = '15px';
   },
 
-//todo gérer la taille des images j'apelle cette méthode dans api showOneCriminalRequest()
-    setCardSoloStyle: function(){
-    soloCardStyle = document.querySelector('img');
-    soloCardStyle.style.width = '550px';
-    soloCardStyle.style.height = 'auto';
-    console.log('ici')
-   
+
+  setCardSoloStyle: function(){
+     
+      soloCardStyle = document.querySelector('img');
+      soloCardStyle.style.width = '550px';
+      soloCardStyle.style.height = 'auto';
 
   },
 
-    setFocusOnButtons: function(){
+/**
+ * vide la div template a chaque requête
+ */
+ cardGroupDivReset: function(){
+  document.getElementById('card-group').innerHTML = ''
+},
 
-    const buttonFocusonValidateButton = document.getElementById("validate");
-    buttonFocusonValidateButton.addEventListener('mouseover', function(){
-   buttonFocusonValidateButton.focus();
-    console.log('setFocusOnButtons')
-    });
-    
-    const buttonFocusonResetButton = document.getElementById("onload");
-    buttonFocusonResetButton.addEventListener('mouseover', function(){
-    buttonFocusonResetButton.focus();
-    console.log('setFocusOnButtons')
-    });
-    },
+/**
+* vide la div du Titre de la banner
+*/
+titleReset: function(){
+  document.getElementById('mydiv').innerHTML = ''
+  myDivStyle = document.getElementById('mydiv').style.background = '#3C3B6E';
+},
+
+
+
+limitCaractersLenght: function(text, count){
+
+  return text.slice(0, count) + ' ...';
+},
+
 
 };
