@@ -127,5 +127,19 @@ setCardTemplateElmts: function(image, titre, description, date){
       soloCardStyle.style.height = 'auto';
 
   },
+  
+/**
+ * vide la div template a chaque requête
+ */
+ cardGroupDivReset: function(){
+  document.getElementById('card-group').innerHTML = ''
+},
 
+/**
+* vide la div du Titre de la banner
+*/
+titleReset: function(){
+  document.getElementById('mydiv').innerHTML = ''
+  myDivStyle = document.getElementById('mydiv').style.background = '#3C3B6E';
+},
 };

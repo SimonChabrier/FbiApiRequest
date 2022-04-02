@@ -42,10 +42,9 @@ const fbiRequest = {
      */
     HandleApiRequest: function() 
     {      
-        //si je n'ai pas de ville je resette le titre pour ne pas afficher de ville
+        //reset Header content if no city in ApiRootUrl endPoint
         if(citySearch =! ''){
-            console.log(citySearch)
-            formsAction.titleReset()
+            template.titleReset()
         };
 
         //set the endPoint
@@ -95,12 +94,10 @@ const fbiRequest = {
             let count = 0; // initialisation du compteur
             const button = document.getElementById('but');
             
-
             button.addEventListener('click', function() {
-                // reset couleur de fond du header si elle a été pasée en rouge avant
-                myDivStyle = document.getElementById('mydiv').style.background = '#3C3B6E';
+               
                 // je resete la banner si il y a eu une recherche faite avant
-                formsAction.titleReset();
+                template.titleReset();
 
                 for (init = 0; count <= myDatas.items.length; count++) {
                 
