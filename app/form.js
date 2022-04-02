@@ -4,6 +4,9 @@ const getFormValue = {
  * Méthode qui pose un eventlistener sur le clic du bouton validate
  * pour soumettre la requête au clic
  */
+
+
+
 formSubmit: function() {
     //j'apelle la méthode fbiApiRequest pour lancer la requête
     //AVANT de bloquer le chargement de la page

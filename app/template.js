@@ -49,7 +49,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       //ici j'ajoute myDivCard à cardGroup
       cardGroup.append(myDivCard)
 
-      if (myImg != null){
+      if (myImg){
       myDivCard.append(myImg);
       } else {
       myDivCard.append('Pas d\'image');
@@ -58,7 +58,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivCard.append(myDivCardBody);
       myDivCardBody.append(myDivCardTitle);
 
-      if (titre =! null){
+      if (titre){
         myDivCardTitle.append(titre)
       }else{
         myDivCardTitle.append('pas de titre')
@@ -66,7 +66,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       
       myDivCardBody.append(myDivCardText);
 
-      if(description != null){
+      if (description){
         myDivCardText.append(description);
       }else{
         myDivCardText.append('pas de description');
@@ -76,7 +76,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivCardBody.append(myDivCardTextDate);
       myDivCardTextDate.append(mySmallBalise);
 
-      if (date != null)
+      if (date)
       mySmallBalise.append(date);
       else {
       mySmallBalise.append('YALLAHHHHH');  
@@ -106,6 +106,7 @@ setCardTemplateElmts: function(image, titre, description, date){
    * ayant l'id'myDiv dans le code HTML
    */
   personnalTitleInDivStyle: function() {
+
       myDivStyle = document.getElementById('mydiv');
       myDivStyle.style.background = '#3C3B6E';
       myDivStyle.style.textAlign = "center";

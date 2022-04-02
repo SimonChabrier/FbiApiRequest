@@ -1,9 +1,46 @@
 const fbiRequest = {
 
-    /** 
-     * Méthode de requette sur sur les value entrées dans le formulaire
-     * apelée dans fbiApiRequestOnFormSubmit()
-     */
+/**
+ * Méthode qui apelle la requête de base
+ * appellée au chargement du dom dans app.init()
+ */ 
+onLoadRequest: function(){
+    if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices=')
+    {
+        // Préparation de la config pour la requête HTTP
+        let config = {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-cache',
+        };
+
+        // Exécution de la requête HTTP via fetch en lui envoyant la config
+        //fetch(app.apiRootUrl, config)
+        fetch(app.apiRootUrl, config)
+            // La requête exécutée, alors j'exécute le callback du then
+            .then(function(response) {
+                // Convertion de la réponse en un objet JS et on le retourne
+                return response.json();
+        })
+        // Récupération d'une une variable js depuis le return response.json() du then précédent
+        // On la nomme comme on veut, et on l'utilise dans le callback ici
+        .then(function(responseObjects) { 
+
+        for (const objectsIndexs in responseObjects.items) {
+
+        const myObjects =  responseObjects.items[objectsIndexs];   
+        console.log(myObjects.title)
+        template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
+
+            } //closure de ma loop for in
+        })//closuresecond then 
+    } //closure first if 
+},//function closure
+
+/** 
+ * Méthode de requette sur sur les value entrées dans le formulaire
+ * apelée dans fbiApiRequestOnFormSubmit()
+ */
 fbiApiRequest: function() 
     {      
         const buttonOnClick = document.getElementById('validate');
@@ -47,47 +84,10 @@ fbiApiRequest: function()
         });//closure 2eme eventlistener et prevent default
     },//closure function
    
-
-    /**
-     * Méthode qui apelle la requête de base
-     * appellée au chargement du dom dans app.init()
-     */ 
-onLoadRequest: function(){
-    if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices=')
-    {
-        // Préparation de la config pour la requête HTTP
-        let config = {
-            method: 'GET',
-            mode: 'cors',
-            cache: 'no-cache',
-        };
-    
-        // Exécution de la requête HTTP via fetch en lui envoyant la config
-        //fetch(app.apiRootUrl, config)
-        fetch(app.apiRootUrl, config)
-            // La requête exécutée, alors j'exécute le callback du then
-            .then(function(response) {
-                // Convertion de la réponse en un objet JS et on le retourne
-                return response.json();
-        })
-        // Récupération d'une une variable js depuis le return response.json() du then précédent
-        // On la nomme comme on veut, et on l'utilise dans le callback ici
-        .then(function(responseObjects) { 
-
-        for (const objectsIndexs in responseObjects.items) {
-
-        const myObjects =  responseObjects.items[objectsIndexs];   
-        template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
-    
-            } //closure de ma loop for in
-        })//closuresecond then 
-    } //closure first if 
-},//function closure
-
-    /**
-     * Méthode qui apelle UN et UN seul criminel sur la recherche de base
-     * appellée au chargement du dom dans app.init()
-     */ 
+/**
+ * Méthode qui apelle UN et UN seul criminel sur la recherche de base
+ * appellée au chargement du dom dans app.init()
+ */ 
 showOneCriminalRequest: function(){        
     if(app.apiRootUrl === 'https://api.fbi.gov/wanted/v1/list?field_offices='){
         
