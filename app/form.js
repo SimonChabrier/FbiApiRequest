@@ -1,4 +1,4 @@
-const getFormValue = {
+const formsAction = {
 
 /**
  * Méthode qui pose un eventlistener sur le clic du bouton validate
@@ -11,7 +11,7 @@ formSubmit: function() {
 
     const button = document.getElementById('validate');
     button.addEventListener('click', function (event) {
-    getFormValue.DivReset();
+    formsAction.cardGroupDivReset();
     event.preventDefault();
     // je contrôle que la div soit vidée pour valider la dynamisation du titre avec le current post office
     if (document.getElementById('mydiv').innerHTML == ''){
@@ -21,14 +21,15 @@ formSubmit: function() {
     });
 },
 
-
 OneCriminalformSubmit: function() {
     //j'apelle la méthode fbiApiRequest pour lancer la requête
-    //AVANT de bloquer le chargement de la page
     fbiRequest.showOneCriminalRequest();
+    //Puis je bloque le chargement de la page
     const button = document.getElementById('but');
     button.addEventListener('click', function (event) {
-    getFormValue.DivReset();
+    //je reset la div à chaque click pour avoir les cards les unes après les autres
+    formsAction.cardGroupDivReset();
+    //je bloque le chargement de la page jusq'au prochain clic
     event.preventDefault();
     });
 },
@@ -37,7 +38,7 @@ OneCriminalformSubmit: function() {
 /**
  * vide la div template a chaque requête
  */
- DivReset: function(){
+cardGroupDivReset: function(){
     document.getElementById('card-group').innerHTML = ''
 },
 

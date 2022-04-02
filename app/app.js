@@ -20,8 +20,8 @@ const app = {
         /**
          * Appel méthodes de ma classe getFormValue
          */
-        getFormValue.formSubmit();
-        getFormValue.OneCriminalformSubmit();
+         formsAction.formSubmit();
+         formsAction.OneCriminalformSubmit();
   
         /**
          * Appel méthodes de ma classe template

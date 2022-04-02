@@ -51,7 +51,7 @@ fbiApiRequest: function()
         
         //si je n'ai pas de ville je resette le titre pour ne pas afficher de ville
         if(cityEntry =! ''){
-        getFormValue.titleReset()
+            formsAction.titleReset()
         };
 
         // Préparation de la config pour la requête HTTP
@@ -109,7 +109,7 @@ showOneCriminalRequest: function(){
                 button.addEventListener('click', function() {
 
                         // je resete la banner si il y a eu une recherche faite avant
-                        getFormValue.titleReset();
+                        formsAction.titleReset();
                         // je lui repasse une valeur
                         document.getElementById('mydiv').innerHTML = '🤩 BEST OF FBI 🤩'
 
