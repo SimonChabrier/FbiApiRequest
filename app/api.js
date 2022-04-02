@@ -29,7 +29,6 @@ onLoadRequest: function(){
         for (const objectsIndexs in responseObjects.items) {
 
         const myObjects =  responseObjects.items[objectsIndexs];   
-        console.log(myObjects.title)
         template.setCardTemplateElmts(myObjects.images[0].original, myObjects.title, myObjects.description, myObjects.dates_of_birth_used);
 
             } //closure de ma loop for in

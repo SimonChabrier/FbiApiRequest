@@ -4,9 +4,6 @@ const getFormValue = {
  * Méthode qui pose un eventlistener sur le clic du bouton validate
  * pour soumettre la requête au clic
  */
-
-
-
 formSubmit: function() {
     //j'apelle la méthode fbiApiRequest pour lancer la requête
     //AVANT de bloquer le chargement de la page
@@ -16,11 +13,9 @@ formSubmit: function() {
     button.addEventListener('click', function (event) {
     getFormValue.DivReset();
     event.preventDefault();
-    console.log('formSubmit')
-    // je contrôle que la div soit vidée pour valider la dynamisation du titre avec le current post officce
+    // je contrôle que la div soit vidée pour valider la dynamisation du titre avec le current post office
     if (document.getElementById('mydiv').innerHTML == ''){
-        console.log('je passe ici dans le if de formSubmit')
-        template.personnalTitleInDiv(' BESTOF FBI WANTED IN ')
+        template.curentOfficeTitleInDiv()
     }
     
     });
@@ -35,7 +30,6 @@ OneCriminalformSubmit: function() {
     button.addEventListener('click', function (event) {
     getFormValue.DivReset();
     event.preventDefault();
-    //console.log('OneCriminalformSubmit')
     });
 },
 
