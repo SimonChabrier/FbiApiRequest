@@ -18,7 +18,7 @@ formSubmit: function() {
 },
 
 showOneCrimalOnClick: function() {
-
+    fbiRequest.showOneCriminalRequest()
     document.getElementById('but').addEventListener('click', function (event) {
     //clean page template
     template.cardGroupDivReset();
