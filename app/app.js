@@ -10,8 +10,10 @@ const app = {
         } else {
             apiRootUrl = 'https://api.fbi.gov/wanted/v1/list?field_offices='
         }
-    return apiRootUrl
-},
+        
+        return apiRootUrl
+    },
+    
     /**
      * Méthode init
      * Apellée au chargement du DOM

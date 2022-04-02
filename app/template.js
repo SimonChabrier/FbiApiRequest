@@ -90,7 +90,17 @@ setCardTemplateElmts: function(image, titre, description, date){
       // je récupère la valeur du current office soummis dans le form
       let currentOffice = document.getElementById('input').value;
       //ici je passe l'office courrant pour l'afficher dans la banière
-      let myContent = document.createTextNode('🤩  MOST WANTED FBI IN ' + currentOffice.toUpperCase() + ' 🤩');
+      if(currentOffice){
+        let myContent = document.createTextNode('🤩  MOST WANTED FBI IN ' + currentOffice.toUpperCase() + ' 🤩');
+        myDivStyle = document.getElementById('mydiv');
+        myDivStyle.style.background = '#3C3B6E';
+        myElement.append(myContent);
+      } else {
+        let myContent = document.createTextNode('🤩  OUPS ! YOU MUST SELECT A CITY IN LIST 🤩'); 
+        myDivStyle = document.getElementById('mydiv');
+        myDivStyle.style.background = 'red';
+        myElement.append(myContent); 
+      }
       // je passe myContent dans myElement
       myElement.append(myContent);
   },
