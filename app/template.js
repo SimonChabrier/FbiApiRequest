@@ -88,7 +88,7 @@ setCardTemplateElmts: function(image, titre, description, date){
       // je passe myElement dans myDiv
       myDiv = document.getElementById('mydiv').append(myElement);
       // je récupère la valeur du current office soummis dans le form
-      let currentOffice = document.getElementById('input').value;
+      let currentOffice = document.getElementById('selectCity').value;
       //ici je passe l'office courrant pour l'afficher dans la banière
       if(currentOffice){
         let myContent = document.createTextNode('🤩  MOST WANTED FBI IN ' + currentOffice.toUpperCase() + ' 🤩');

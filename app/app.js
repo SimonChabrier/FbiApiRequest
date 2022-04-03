@@ -4,8 +4,9 @@ const app = {
     {
         console.log("init");
         fbiRequest.onLoadRequest();
-        formsAction.formSubmit();
-        formsAction.showOneCrimalOnClick(); 
+        fbiRequest.listeninCurrentOfficeSubmit();
+        formsAction.listeningSubmit();
+        formsAction.listeningNextButton(); 
     },
   
 };
