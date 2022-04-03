@@ -49,7 +49,7 @@ const fbiRequest = {
      */
      listenerOnSearchOfficeSubmit: function() 
      {     
-         document.getElementById('validate').addEventListener('click', fbiRequest.HandleApiRequest);
+         document.getElementById('searchInput').addEventListener('click', fbiRequest.HandleApiRequest);
      },
 
     /** 
@@ -107,7 +107,7 @@ const fbiRequest = {
         .then(function(myDatas) { 
 
             let count = 0; // initialisation du compteur
-            const button = document.getElementById('but');
+            const button = document.getElementById('nextBut');
             
             button.addEventListener('click', function() {
                

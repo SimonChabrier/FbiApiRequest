@@ -6,7 +6,7 @@ const formsAction = {
 formSubmit: function() {
     fbiRequest.listenerOnSearchOfficeSubmit();
     
-    document.getElementById('validate').addEventListener ('click', function (event) {
+    document.getElementById('searchInput').addEventListener ('click', function (event) {
     //clean page template
     template.cardGroupDivReset();
     //stop curent submit until next click event
@@ -22,7 +22,7 @@ formSubmit: function() {
 showOneCrimalOnClick: function() {
     fbiRequest.showOneCriminalRequest()
 
-    document.getElementById('but').addEventListener('click', function (event) {
+    document.getElementById('nextBut').addEventListener('click', function (event) {
     //clean page template
     template.cardGroupDivReset();
     //stop curent submit until next click event
