@@ -4,7 +4,8 @@
 } */
 
 label {
-  display: inline-block;
+  display: block;
+  text-align: center;
   margin-bottom: .5rem;
   font-size: 1em;
   text-transform: uppercase;
@@ -36,13 +37,6 @@ label {
 .card {
    width: min-content;
    margin-bottom: 20px;
-}
-
-/* for crop image */
-.card-img-top {
-  width: 250px; 
-  height: 250px;
-  object-fit: cover;
 }
 
 /* input list */
@@ -94,23 +88,61 @@ select::-ms-expand {
 .select:hover::after {
   color: #f39c12;
 }
+ 
+/* XXSmall devices (phones, 320px and up) */
+@media (min-width: 320px) { 
 
-@media only screen and (max-width: 600px) {
+  .card-img-top {
+    width: 280px; 
+    height: 280px;
+    object-fit: cover;
+  }
 
-.card-img-top {
-  width: 350px; 
-  height: 350px;
-  object-fit: cover;
 }
 
-.label {
-  display: block;
-  text-align: center;
+/* XSmall devices (phones, 375px and up) */
+@media (min-width: 375px) { 
+
+  .card-img-top {
+    width: 330px; 
+    height: 330px;
+    object-fit: cover;
+  }
+
 }
 
-.mainTitle {
-  font-size: 1em!important;
+/* Small devices (phones, 425px and up) */
+@media (min-width: 425px) { 
+
+  .card-img-top {
+    width: 380px; 
+    height: 380px;
+    object-fit: cover;
+  }
+
 }
 
-}  
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+  .card-img-top {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover;
+  }
+
+ }
+
+
+/* XL devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+  .card-img-top {
+    width: 250px; 
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+ 
 
