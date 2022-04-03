@@ -117,16 +117,17 @@ const fbiRequest = {
             const button = document.getElementById('nextBut');
 
             document.getElementById('searchInput').addEventListener ('click', function(){
-                count = 0
-                currentInputValue = document.getElementById('selectCity').value
-                if (currentInputValue){
+            count = 0
+
+            currentInputValue = document.getElementById('selectCity').value
+
+            if (currentInputValue){
                 button.innerHTML = `CLICK FOR DETAILS`;
                 button.classList.remove("btn-warning");
                 button.classList.add("btn-primary"); 
-                console.log(count)
-                } else {
-                    button.innerHTML = 'LAST 20 MOST WANTED';
-                }
+            } else {
+                button.innerHTML = 'LAST 20 MOST WANTED';
+            }
             })
             
             button.addEventListener('click', function() {
