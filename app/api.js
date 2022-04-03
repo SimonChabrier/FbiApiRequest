@@ -117,18 +117,17 @@ const fbiRequest = {
             const button = document.getElementById('nextBut');
 
             document.getElementById('searchInput').addEventListener ('click', function(){
-            count = 0
 
             currentInputValue = document.getElementById('selectCity').value
 
-            if (currentInputValue){
-                button.innerHTML = `CLICK FOR DETAILS`;
-                button.classList.remove("btn-warning");
-                button.classList.add("btn-primary"); 
-            } else {
-                button.innerHTML = 'LAST 20 MOST WANTED';
-            }
-            })
+                if (currentInputValue){
+                    button.innerHTML = `CLICK FOR DETAILS`;
+                    button.classList.remove("btn-warning");
+                    button.classList.add("btn-primary"); 
+                } else {
+                    button.innerHTML = 'LAST 20 MOST WANTED';
+                }
+            });
             
             button.addEventListener('click', function() {
                
@@ -146,8 +145,6 @@ const fbiRequest = {
                 template.setCardTemplateElmts(myObject.images[0].original, myObject.title, myObject.description, myObject.dates_of_birth_used);
                 //set style for solo cards display
                 template.setCardSoloStyle();
-
-                
 
                     if(count === myDatas.items.length){
                         count = 0;
