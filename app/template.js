@@ -122,10 +122,11 @@ setCardTemplateElmts: function(image, titre, description, date){
 
   setCardSoloStyle: function(){
      
-      soloCardStyle = document.querySelector('img');
-      soloCardStyle.style.width = '550px';
-      soloCardStyle.style.height = 'auto';
-
+      soloCardStyle = document.querySelector('.card')
+      soloCardStyle.style.width = '';
+      soloCardPic = document.querySelector('img')
+      soloCardPic.classList.remove('card-img-top')
+     
   },
 
 /**

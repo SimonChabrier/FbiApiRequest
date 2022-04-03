@@ -1,152 +1,116 @@
-body img {
-    background-image: url(../img/flag.jpg);
-    background-position: bottom;
-}
-
-.container {
-    background-color: #fdfdfd;
-    background-image: url(../img/flag.jpg);
-    background-position: top;
-    background-repeat: no-repeat;
-}
+/* body {
+  background-image: url(../img/flag.jpg);
+  background-position: bottom;
+} */
 
 label {
-    display: inline-block;
-    margin-bottom: .5rem;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    margin-top: 0px;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #366fab;
-    border-color: #007bff;
-}
-
-#mydiv{
-    background-image: url("../img/flag.jpg");
-    background-origin: content-box;
-}
-
-
-#card-group img {
-    width: 240px;
-    height: 240px;
-    background-size: cover;
-}
-
-#card-group {
-    display: inline-flex;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
-
-.card {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    flex-direction: column;
-    width: min-content;
+  display: inline-block;
+  margin-bottom: .5rem;
+  font-size: 1em;
+  text-transform: uppercase;
+  margin-top: 0px;
+  background-color: #fff;
 }
 
 .form-group {
-    margin-bottom: 1rem;
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
-    align-items: stretch;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.author {
-background-image: url("../img/flag.jpg");
-background-size: contain;
-background-repeat-x: repeat;
-
+.btn-primary {
+  color: #fff;
+  background-color: #366fab;
+  border-color: #007bff;
 }
 
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}  
 
+.card {
+   width: min-content;
+   margin-bottom: 20px;
+}
 
-
-@media only screen and (max-width: 1000px) {
-
-    #card-group {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-
-    #card-group img {
-        width: 420px;
-        height: 420px;
-        background-size: cover;
-    }  
-
-  }
-
+/* for crop image */
+.card-img-top {
+  width: 250px; 
+  height: 250px;
+  object-fit: cover;
+}
 
 /* input list */
 
 :root {
-    --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-    --gray: #34495e;
-    --darkgray: #2c3e50;
-  }
-  
-  select {
-    /* Reset Select */
-    appearance: none;
-    outline: 0;
-    border: 0;
-    box-shadow: none;
-    /* Personalize */
-    flex: 1;
-    padding: 0 1em;
-    color: #fff;
-    background-color: var(--darkgray);
-    background-image: none;
-    cursor: pointer;
-  }
-  /* Remove IE arrow */
-  select::-ms-expand {
-    display: none;
-  }
-  /* Custom Select wrapper */
-  .select {
-    position: relative;
-    display: flex;
-    width: 20em;
-    height: 3em;
-    border-radius: .25em;
-    overflow: hidden;
-  }
-  /* Arrow */
-  .select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em;
-    background-color: #34495e;
-    transition: .25s all ease;
-    pointer-events: none;
-  }
-  /* Transition */
-  .select:hover::after {
-    color: #f39c12;
-  }
-  
+  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+
+@media only screen and (max-width: 600px) {
+
+.card-img-top {
+  width: 350px; 
+  height: 350px;
+  object-fit: cover;
+}
+
+.label {
+  display: block;
+  text-align: center;
+}
+
+.mainTitle {
+  font-size: 1em!important;
+}
+
+}  
+

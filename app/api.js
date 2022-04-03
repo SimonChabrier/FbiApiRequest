@@ -121,6 +121,7 @@ const fbiRequest = {
                 document.getElementById('mydiv').innerHTML = `🤩 LAST WANTED ${count} ON 20 🤩`;
 
                 template.setCardTemplateElmts(myObject.images[0].original, myObject.title, myObject.description, myObject.dates_of_birth_used);
+                //set style for solo cards display
                 template.setCardSoloStyle();
 
                     if(count === myDatas.items.length){
