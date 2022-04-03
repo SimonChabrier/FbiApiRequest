@@ -13,10 +13,18 @@ label {
   background-color: #fff;
 }
 
-.form-group {
+.form-select {
   margin-bottom: 1rem;
   display: flex;
+  /* gap: 15px; */
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-btn {
   gap: 15px;
+  margin-bottom: 15px;
+  display: flex;
   flex-direction: column;
   align-items: stretch;
 }
@@ -89,6 +97,18 @@ select::-ms-expand {
   color: #f39c12;
 }
  
+
+/* XXXSmall devices (phones, 280px and up) */
+@media (min-width: 280px) { 
+
+  .card-img-top {
+    width: 250px; 
+    height: 250px;
+    object-fit: cover;
+  }
+
+}
+
 /* XXSmall devices (phones, 320px and up) */
 @media (min-width: 320px) { 
 
@@ -104,19 +124,30 @@ select::-ms-expand {
 @media (min-width: 375px) { 
 
   .card-img-top {
-    width: 330px; 
-    height: 330px;
+    width: 340px; 
+    height: 340px;
     object-fit: cover;
   }
 
 }
 
-/* Small devices (phones, 425px and up) */
-@media (min-width: 425px) { 
+/* Small devices (phones, 414px and up) */
+@media (min-width: 414px) { 
 
   .card-img-top {
     width: 380px; 
     height: 380px;
+    object-fit: cover;
+  }
+
+}
+
+/* Small devices (phones, 540px and up) */
+@media (min-width: 540px) { 
+
+  .card-img-top {
+    width: 500px; 
+    height: 500px;
     object-fit: cover;
   }
 
