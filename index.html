@@ -25,11 +25,14 @@
   <body>
     <div class="container">
       <div id="mydiv" class="mainTitle">🤩 LAST 20 FBI MOST WANTED 🤩</div>
+      <div class="form-btn">
+      <button type="submit" class="btn btn-primary" id="nextBut">LAST 20 MOST WANTED</button>
+    </div>
       <label for="city" class="label">Recherche par ville...</label>
         <form>
           <div class="form-select">
             <div class="select">
-                  <select id="input">
+                  <select id="selectCity">
                     <option value=""  type="input">Choisir</option>
                     <option value="albany"  type="input">Albany</option>
                     <option value="albuquerque"  type="input">Albuquerque</option>
@@ -91,7 +94,6 @@
         </form>
         <div class="form-btn">
           <button type="submit" class="btn btn-primary" id="searchInput">SEARCH IN FBI POST OFFICES LIST</button>
-          <button type="submit" class="btn btn-primary" id="nextBut">LAST 20 MOST WANTED</button>
         </div>
           <div class= "cardContainer" id="card-group"></div>
     </div>
