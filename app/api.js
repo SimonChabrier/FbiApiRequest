@@ -89,7 +89,7 @@ const fbiRequest = {
     listeninCurrentOfficeSubmit: function() 
     {     
         document.getElementById('searchInput').addEventListener('click', fbiRequest.handleShowOneCriminalRequest);
-        
+        count = 0;
     },
 
     /**
@@ -117,20 +117,24 @@ const fbiRequest = {
             const button = document.getElementById('nextBut');
 
             document.getElementById('searchInput').addEventListener ('click', function(){
-
+            
+            
             currentInputValue = document.getElementById('selectCity').value
 
                 if (currentInputValue){
+                    count = 0;
+                    
                     button.innerHTML = `CLICK FOR DETAILS`;
                     button.classList.remove("btn-warning");
                     button.classList.add("btn-primary"); 
                 } else {
                     button.innerHTML = 'LAST 20 MOST WANTED';
+                
                 }
             });
             
             button.addEventListener('click', function() {
-               
+                
                 // je resete la banner si il y a eu une recherche faite avant
                 template.titleReset();
                 // je resete la template
@@ -138,7 +142,7 @@ const fbiRequest = {
 
                 for (init = 0; count <= myDatas.items.length; count++) {
                 let myObject = myDatas.items[count++];
-
+                
                 button.innerHTML = `${myObject.title}`;
                 document.getElementById('mydiv').innerHTML = `🤩 LAST WANTED ${count} ON ${myDatas.items.length}  🤩`;
 
