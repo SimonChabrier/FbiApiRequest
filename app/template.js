@@ -111,7 +111,6 @@ setCardTemplateElmts: function(image, titre, description, date){
       myDivStyle = document.getElementById('mydiv');
       myDivStyle.style.background = '#3C3B6E';
       myDivStyle.style.textAlign = "center";
-      myDivStyle.style.fontSize = "2em";
       myDivStyle.style.fontWeight = "400";
       myDivStyle.style.padding = '20px';
       myDivStyle.style.color = 'white';

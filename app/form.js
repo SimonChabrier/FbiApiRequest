@@ -38,6 +38,7 @@ handleShowOneCrimalOnClick: function() {
     //stop curent submit until next click event
     event.preventDefault();
     });
+
 },
 
 

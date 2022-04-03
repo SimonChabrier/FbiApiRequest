@@ -107,6 +107,10 @@ select::-ms-expand {
     object-fit: cover;
   }
 
+  .mainTitle {
+    font-size: 1em;
+  }
+
 }
 
 /* XXSmall devices (phones, 320px and up) */
@@ -117,6 +121,11 @@ select::-ms-expand {
     height: 280px;
     object-fit: cover;
   }
+
+  .mainTitle {
+    font-size: .9em!important;
+  }
+  
 
 }
 
@@ -129,6 +138,9 @@ select::-ms-expand {
     object-fit: cover;
   }
 
+  .mainTitle {
+    font-size: 1em!important;
+  }
 }
 
 /* Small devices (phones, 414px and up) */
@@ -149,6 +161,10 @@ select::-ms-expand {
     width: 500px; 
     height: 500px;
     object-fit: cover;
+  }
+
+  .mainTitle {
+    font-size: 2em!important;
   }
 
 }
