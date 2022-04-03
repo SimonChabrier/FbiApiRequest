@@ -59,11 +59,11 @@ const fbiRequest = {
     {      
         //reset Header content if no city in ApiRootUrl endPoint
         if(citySearch =! ''){
-            template.titleReset()
+            template.titleReset();
         };
 
         //set the endPoint
-        apiEndPoint = fbiRequest.apiRootUrl()
+        apiEndPoint = fbiRequest.apiRootUrl();
 
         let config = {
             method: 'GET',
